@@ -47,9 +47,18 @@ body {
   font-family: 'Latin Modern Roman', serif;
 }
 
+pre {
+  font-family: 'Latin Modern Mono', monospace, sans-serif;
+  text-align: left !important;
+}
+
 p, h1, h2, h3, h4, h5, h6, .column {
   max-width: 500px;
   margin: 1em auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
 }
 
 p {

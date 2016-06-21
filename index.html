@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>language and culture</title>
+  <title>sitelen rendering</title>
   <link rel="stylesheet" href="deps/toki-renderer.css" />
   <link rel="stylesheet" href="deps/style.css" />
   <script src="deps/prefixfree.min.js"></script>
@@ -13,17 +13,15 @@
           crossorigin="anonymous"></script>
 </head>
 <body>
-  <h1>sitelen sitelen Rendering Engine</h1>
+  <h1>Rendering Linear Toki Pona Text As Sitelen Sitelen</h1>
 
   <h3>source available <a href="https://github.com/qguv/sitelen_sitelen">on github</a></h3>
 
   <p>
-  The roman alphabet has tremendous support on computers. Typesetting engines
-  (like LaTeX, used to make books and publications), layout engines (the guts
-  of web browsers), and operating systems (which handle text rendering in
-  applications like LibreOffice) all support the roman alphabet nicely. If you
-  happen to want to type a different script, you will get mixed results. Many
-  scripts have no support at all. Thankfully, many linguists are
+  The roman alphabet has tremendous support on computers. All typesetting
+  systems support the roman alphabet nicely. If you want to type a different
+  script, you'll get mixed results. Many scripts have no support at all.
+  Thankfully, many linguists are
   <a href="http://linguistics.berkeley.edu/sei/">working hard</a>
   to change this situation.
   </p>
@@ -32,11 +30,10 @@
   Adding support for scripts is a multi-step process that is challenging both
   in terms of technicality (getting individual alloglyphs to surface and
   combine correctly in the proper environments) and adoption (pushing out these
-  changes to all the different ways people view text). Many of these steps
-  (e.g. glyph encoding) now have international agencies (the Unicode
-  consortium) who promote standards (Unicode) and accept proposals for new
-  scripts to be added to the standard. There are still technical challenges to
-  be tackled, however.
+  changes to all the different ways people view text). Many of these steps now
+  have international agencies who promote standards and accept proposals for
+  new scripts to be added to the standard. There are still technical
+  challenges to be tackled, however.
   </p>
 
   <p>
@@ -49,7 +46,7 @@
 
     Combining glyphs is difficult in Maya script.
     <br />
-    Image courtesy ancientscripts.com
+    <small>Image courtesy ancientscripts.com</small>
     </label>
   </div>
 
@@ -70,25 +67,47 @@
   <p>
   sitelen sitelen is visually inspired by the Maya script and uses the same
   <a href="http://jonathangabel.com/archive/2012/learn_t47_lesson-4b.html">glyph combining rules</a>.
-  Its simplicity, and the (extreme) simplicity of the language it uses, makes
-  it an ideal subject for a glyph-combining experiment.
+  Its simplicity and the simplicity of toki pona grammar make sitelen sitelen
+  an ideal subject for a glyph-combining experiment.
   </p>
 
   <p>
   Thankfully, a good chunk of work is done for us.
   <a href="http://nullelement.org/2015/05/living-toki-pona-using-flexbox-layout-and-sitelen-sitelen/">Olaf Janssen</a>
-  has created a very well-featured Flexbox-based layout system for modern Web
-  layout engines.
+  has created a sitelen sitelen renderer based on Flexbox for modern Web
+  browsers. Unfortunately, it does not accept toki pona input in plain roman
+  alphabet form; rather, it operates on a hierarchical representation of the
+  block structure of the sentence. To use the system directly, one would need
+  to create statements that look like this:
+  </p>
+
+  <div class="inset center column">
+    <pre>
+{ container: 'stack',
+     glyphs: [ 'suno',
+             { container: 'li', glyphs: ['suli'] },
+             { punctuation: 'exclamation' }] }
+    </pre>
+    <label class="input">suno li suli</label>
+  </div>
+
+  <p>
+  I don't think users, not even Web-savvy users, should have to manually
+  generate these. We have enough grammatical information in most cases to
+  generate sitelen sitelen parses of the original toki pona text.
   </p>
 
   <p>
-  I have adapted this system for natural language inputs; that is, a speaker
-  can type Toki Pona text in the roman alphabet and produce a rendered sitelen
-  sitelen block.
+  I have adapted this system for natural language input; that is, a speaker can
+  type toki pona text in the roman alphabet and produce a rendered sitelen
+  sitelen block. My extension turns linear toki pona input into the sort of
+  hierarchical block-representations that Janssen's system requires, then uses
+  that system to render the glyph blocks appropriately.
   </p>
 
   <p>
-  Here are some examples:
+  Here are some examples, all of which are automatically generated from linear
+  toki pona text:
   </p>
 
   <div class="example inset center column">
@@ -106,19 +125,20 @@
   </div>
 
   <p>
-  Note above how the glyph for <em>kili</em> is inside the glyph for <em>e</em> as
-  specified in Gabel's sitelen sitelen.
+  Note above how the glyph for <em>kili</em> is inside the glyph for <em>e</em>
+  as specified in Gabel's sitelen sitelen.
   </p>
 
   <div class="example inset center column">
     <div class="column center output"></div>
     <label class="input">pipi li moku e telo sina!</label>
     <br />
-    <label>The bug's drinking your water!</label>
+    <label>The bug is drinking your water!</label>
   </div>
 
   <p>
-  Again we have glyph composition. This time the glyph for <em>li</em> encircles the glyph for <em>moku</em>.
+  Again we have glyph composition. This time the glyph for <em>li</em>
+  encircles the glyph for <em>moku</em>.
   </p>
 
   <div class="example inset center column">
@@ -141,7 +161,10 @@
   <div id="live" class="inset center column">
     <div class="column center output"></div>
     <label class="input"></label>
-    <p>available vocabulary: e ijo ilo jan jo kili li lukin mi moku ona pakala pipi pona sina suli suno telo unpa wile</p>
+    <p>
+    available vocabulary: e ijo ilo jan jo kili li lukin mi moku ona pakala
+    pipi pona sina suli suno telo unpa wile
+    </p>
     <input class="input" value="ona li moku e kili." />
     <button>Render</button>
   </div>

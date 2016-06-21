@@ -18,10 +18,7 @@ window.onload = function() {
               direction: 'row',
               glyphs: ['telo', {container: 'li', glyphs: ['pona']}, {punctuation: 'period'}]
           }]);
-  renderElements(d,
-          [{
-              container: 'stack',
-              glyphs: ['suno', {container: 'li', glyphs: ['suli']}, {punctuation: 'exclamation'}]
+  renderElements(d, [{ container: 'stack', glyphs: ['suno', { container: 'li', glyphs: ['suli']}, {punctuation: 'exclamation'}]
           }]);
   renderElements(d,
           [{container: 'stack', glyphs: ['jan', {container: 'li', glyphs: ['pona']}, {punctuation: 'period'}]}]);

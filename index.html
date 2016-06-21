@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>language and culture</title>
+  <link rel="stylesheet" href="deps/toki-renderer.css" />
+  <link rel="stylesheet" href="deps/style.css" />
+  <script src="deps/prefixfree.min.js"></script>
+  <script src="deps/toki-renderer.js"></script>
+  <script src="deps/underscore-min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.0.0.min.js"
+          integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0="
+          crossorigin="anonymous"></script>
+</head>
+<body>
+  <h1>sitelen sitelen Rendering Engine</h1>
+
+  <h3>source available <a href="https://github.com/qguv/sitelen_sitelen">on github</a></h3>
+
+  <p>
+  The roman alphabet has tremendous support on computers. Typesetting engines
+  (like LaTeX, used to make books and publications), layout engines (the guts
+  of web browsers), and operating systems (which handle text rendering in
+  applications like LibreOffice) all support the roman alphabet nicely. If you
+  happen to want to type a different script, you will get mixed results. Many
+  scripts have no support at all. Thankfully, many linguists are
+  <a href="http://linguistics.berkeley.edu/sei/">working hard</a>
+  to change this situation.
+  </p>
+
+  <p>
+  Adding support for scripts is a multi-step process that is challenging both
+  in terms of technicality (getting individual alloglyphs to surface and
+  combine correctly in the proper environments) and adoption (pushing out these
+  changes to all the different ways people view text). Many of these steps
+  (e.g. glyph encoding) now have international agencies (the Unicode
+  consortium) who promote standards (Unicode) and accept proposals for new
+  scripts to be added to the standard. There are still technical challenges to
+  be tackled, however.
+  </p>
+
+  <p>
+  The Mayan script presents one such challenge.
+  </p>
+
+  <div class="inset column center">
+    <img src="maya.gif" alt="Demonstating the difficulty of combining glyphs in Maya script." />
+    <label>
+
+    Combining glyphs is difficult in Maya script.
+    <br />
+    Image courtesy ancientscripts.com
+    </label>
+  </div>
+
+  <p>
+  How do we adapt text-rendering tools that were developed (exclusively) for
+  the latin alphabet to accomodate such complex glyph combining rules?
+  </p>
+
+  <p>
+  The Maya script is complex, and I hope to work on it directly someday. But as
+  a proof of concept to investigate rendering of Maya-like scripts, I am
+  working with <em>sitelen sitelen</em> ("picture drawing"), a script created
+  by Jonathan Gabel for the constructed language <em>toki pona</em>.
+  Constructed languages like toki pona let linguists and hobbyists play around
+  with concepts and theories.
+  </p>
+
+  <p>
+  sitelen sitelen is visually inspired by the Maya script and uses the same
+  <a href="http://jonathangabel.com/archive/2012/learn_t47_lesson-4b.html">glyph combining rules</a>.
+  Its simplicity, and the (extreme) simplicity of the language it uses, makes
+  it an ideal subject for a glyph-combining experiment.
+  </p>
+
+  <p>
+  Thankfully, a good chunk of work is done for us.
+  <a href="http://nullelement.org/2015/05/living-toki-pona-using-flexbox-layout-and-sitelen-sitelen/">Olaf Janssen</a>
+  has created a very well-featured Flexbox-based layout system for modern Web
+  layout engines.
+  </p>
+
+  <p>
+  I have adapted this system for natural language inputs; that is, a speaker
+  can type Toki Pona text in the roman alphabet and produce a rendered sitelen
+  sitelen block.
+  </p>
+
+  <p>
+  Here are some examples:
+  </p>
+
+  <div class="example inset center column">
+    <div class="column center output"></div>
+    <label class="input">sina moku.</label>
+    <br />
+    <label>You are eating.</label>
+  </div>
+
+  <div class="example inset center column">
+    <div class="column center output"></div>
+    <label class="input">mi moku e kili.</label>
+    <br />
+    <label>I eat a fruit.</label>
+  </div>
+
+  <p>
+  Note above how the glyph for <em>kili</em> is inside the glyph for <em>e</em> as
+  specified in Gabel's sitelen sitelen.
+  </p>
+
+  <div class="example inset center column">
+    <div class="column center output"></div>
+    <label class="input">pipi li moku e telo sina!</label>
+    <br />
+    <label>The bug's drinking your water!</label>
+  </div>
+
+  <p>
+  Again we have glyph composition. This time the glyph for <em>li</em> encircles the glyph for <em>moku</em>.
+  </p>
+
+  <div class="example inset center column">
+    <div class="column center output"></div>
+    <label class="input">mi jo e kili. pipi li jo e telo.</label>
+    <br />
+    <label>I have a fruit. The bug has water.</label>
+  </div>
+
+  <p>
+  There's still a lot to be done. I'd like to support preposition-blocks, many
+  possible block layouts (one would choose by clicking) and the entire toki
+  pona lexicon. Because we're only using the stack layout as defined by
+  Janssen, our blocks don't look symmetrical like they
+  <a href="http://www.jonathangabel.com/archive/2012/images/t47_tokipona/tokisona/tokisona08_l.jpg">should</a>.
+  My next iteration will focus solely on block layout.
+  </p>
+
+  <h2>Interactive Demonstration</h2>
+  <div id="live" class="inset center column">
+    <div class="column center output"></div>
+    <label class="input"></label>
+    <p>available vocabulary: e ijo ilo jan jo kili li lukin mi moku ona pakala pipi pona sina suli suno telo unpa wile</p>
+    <input class="input" value="ona li moku e kili." />
+    <button>Render</button>
+  </div>
+  <script type="text/javascript">
+    var live_render = function () {
+      var l = $('div#live')
+      var text = l.find('input.input').get(0).value;
+      var output = l.find('div.output');
+      output.children().remove();
+      l.find('label.input').text(text);
+      render_toki(output.get(0), text);
+    }
+
+    $(document).ready(function() {
+
+      // button or enter triggers live_render
+      $('div#live > button').click(live_render);
+      $("div#live > input.input").keyup(function (event) { if (event.keyCode == 13){ live_render(); } });
+
+      // automatically generate all static examples from label text
+      $('div.example').each(function () {
+        var text = $(this).find('label.input').text();
+        var output = $(this).find('div.output');
+        render_toki(output.get(0), text);
+      });
+
+      // render the live example
+      live_render();
+    });
+  </script>
+</body>
+</html>

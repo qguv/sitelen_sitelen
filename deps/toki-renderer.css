@@ -1,207 +1,202 @@
-body {
-    background-color: rgb(93, 93, 93);
-    color: white;
-}
-
 .toki-cartouche {
-    -webkit-align-content: flex-start;
-    align-content: flex-start;
-    -webkit-align-items: stretch;
-    align-items: stretch;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-flex-direction: column;
-    flex-direction: column;
-    box-sizing: border-box;
-    display: -webkit-inline-flex;
-    display: inline-flex;
-    position: relative;
-    flex-wrap: wrap;
-    margin-top: 1em;
+  -webkit-align-content: flex-start;
+  align-content: flex-start;
+  -webkit-align-items: stretch;
+  align-items: stretch;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  box-sizing: border-box;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  position: relative;
+  flex-wrap: wrap;
+  margin-top: 1em;
 }
 
 .toki-cartouche::before {
-    background-image: url(http://smoishele.com/gists/livingtokipona/images/toki-dict-cartouche.svg);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    position: absolute;
-    bottom: -2em;
-    right: -0.5em;
-    left: -0.5em;
-    top: -0.25em;
-    content: '';
+  background-image: url(http://smoishele.com/gists/livingtokipona/images/toki-dict-cartouche.svg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  bottom: -2em;
+  right: -0.5em;
+  left: -0.5em;
+  top: -0.25em;
+  content: '';
 }
 
 .toki-cartouche-row::before {
-    background-image: url(http://smoishele.com/gists/livingtokipona/images/toki-dict-cartouche-row.svg);
-    bottom: -2.25em;
-    right: -0.25em;
-    left: -0.25em;
-    top: -0.5em;
+  background-image: url(http://smoishele.com/gists/livingtokipona/images/toki-dict-cartouche-row.svg);
+  bottom: -2.25em;
+  right: -0.25em;
+  left: -0.25em;
+  top: -0.5em;
 }
 
 .toki-stack {
-    margin: 0 -1.5em -1.5em 0;
-    align-content: flex-start;
-    align-items: flex-start;
-    justify-content: center;
-    flex-direction: column;
-    box-sizing: border-box;
-    padding: 0 2em 1em 0.5em;
-    display: inline-flex;
-    position: relative;
-    flex-wrap: wrap;
-    flex: 1 1 5em;
-    height: 5em;
-    width: 5em;
+  margin: 0 -1.5em -1.5em 0;
+  align-content: flex-start;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 0 2em 1em 0.5em;
+  display: inline-flex;
+  position: relative;
+  flex-wrap: wrap;
+  flex: 1 1 5em;
+  height: 5em;
+  width: 5em;
 }
 
 .toki-stack::before {
-    background-image: url(http://smoishele.com/gists/livingtokipona/images/toki-dict-li.svg);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    position: absolute;
-    z-index: -1;
-    content: '';
-    bottom: 0;
-    right: 0;
-    left: 0;
-    top: 0;
+  background-image: url(http://smoishele.com/gists/livingtokipona/images/toki-dict-li.svg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  z-index: -1;
+  content: '';
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
 }
 
 .toki-stack-e {
-    padding-left: 1.25em;
-    width: 7em;
-    height: 6.5em;
+  padding-left: 1.25em;
+  width: 7em;
+  height: 6.5em;
 }
 
 .toki-stack-e::before {
-    background-image: url(http://smoishele.com/gists/livingtokipona/images/toki-dict-e.svg);
+  background-image: url(http://smoishele.com/gists/livingtokipona/images/toki-dict-e.svg);
 }
 
 .toki-stack-cartouche {
-    padding-left: 1.5em;
-    width: 7em;
-    height: 7em;
+  padding-left: 1.5em;
+  width: 7em;
+  height: 7em;
 }
 
 .toki-stack-cartouche::before {
-    background-image: url(http://smoishele.com/gists/livingtokipona/images/toki-dict-cartouche.svg);
+  background-image: url(http://smoishele.com/gists/livingtokipona/images/toki-dict-cartouche.svg);
 }
 
 .toki-stack-row {
-    flex-direction: row;
-    padding-top: 0.5em;
+  flex-direction: row;
+  padding-top: 0.5em;
 }
 
 .toki-stack > * {
-    font-size: 0.8em;
+  font-size: 0.8em;
 }
 
 .toki-inner-block {
-    display: inline-flex;
-    flex-direction: column;
-    align-content: flex-start;
-    align-items: flex-start;
-    justify-content: flex-start;
-    margin: 0 0 0 -1.4em;
+  display: inline-flex;
+  flex-direction: column;
+  align-content: flex-start;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 0 0 0 -1.4em;
 }
 
 .toki-syllable {
-    margin: 0 -2.25em -1.75em 0;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    position: relative;
-    -webkit-flex: 1 1 5em;
-    flex: 1 1 5em;
-    height: 5em;
-    width: 5em;
+  margin: 0 -2.25em -1.75em 0;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+  -webkit-flex: 1 1 5em;
+  flex: 1 1 5em;
+  height: 5em;
+  width: 5em;
 }
 
 .toki-glyph {
-    margin: 0 -1.75em -1.75em 0;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    position: relative;
-    -webkit-flex: 1 1 5em;
-    flex: 1 1 5em;
-    height: 5em;
-    width: 5em;
+  margin: 0 -1.75em -1.75em 0;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+  -webkit-flex: 1 1 5em;
+  flex: 1 1 5em;
+  height: 5em;
+  width: 5em;
 }
 
 .toki-glyph:only-child {
-    flex: 0 1 5em;
+  flex: 0 1 5em;
 }
 
 .toki-block {
-    box-sizing: border-box;
-    padding: 0 1.75em 1.75em 0;
-    justify-content: flex-start;
-    align-content: flex-start;
-    align-items: flex-start;
-    flex-direction: column;
-    display: inline-flex;
-    position: relative;
-    flex-wrap: wrap;
+  box-sizing: border-box;
+  padding: 0 1.75em 1.75em 0;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  display: inline-flex;
+  position: relative;
+  flex-wrap: wrap;
 }
 
 .toki-block-row {
-    flex-direction: row;
+  flex-direction: row;
 }
 
 .toki-pedestal::after {
-    background-image: url(http://smoishele.com/gists/livingtokipona/images/toki-dict-period.svg);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    position: absolute;
-    bottom: -2.25em;
-    content: '';
-    z-index: -999;
-    height: 5em;
-    width: 100%;
-    left: 0;
+  background-image: url(http://smoishele.com/gists/livingtokipona/images/toki-dict-period.svg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  bottom: -2.25em;
+  content: '';
+  z-index: -999;
+  height: 5em;
+  width: 100%;
+  left: 0;
 }
 
 .toki-pedestal.toki-pedestal-exclamation::after {
-    background-image: url(http://smoishele.com/gists/livingtokipona/images/toki-dict-exclamation.svg);
+  background-image: url(http://smoishele.com/gists/livingtokipona/images/toki-dict-exclamation.svg);
 }
 
 .toki-sentence {
-    height: auto;
-    vertical-align: bottom;
-    margin: 0 1em 1em 0;
+  height: auto;
+  vertical-align: bottom;
+  margin: 0 1em 1em 0;
 }
 
 .toki-double-width {
-    flex: 1 1 9em;
-    width: 9em;
+  flex: 1 1 9em;
+  width: 9em;
 }
 
 .toki-sentence-2-by-2 {
-    height: 8.5em;
-    width: 10.5em;
+  height: 8.5em;
+  width: 10.5em;
 }
 
 figure {
-    font-size: 1.25em;
-    display: inline-block;
-    text-align: center;
-    position: relative;
+  font-size: 1.25em;
+  display: inline-block;
+  text-align: center;
+  position: relative;
 }
 
 figcaption {
-    font-family: sans-serif;
-    font-style: italic;
-    margin-bottom: 1em;
+  font-family: sans-serif;
+  font-style: italic;
+  margin-bottom: 1em;
 }
 
 #toki-sina-jo-e-ilo .toki-sentence,
 #toki-ona-li-lukin-e-pipi .toki-sentence,
 #toki-mi-moku-e-kili .toki-sentence {
-    width: 10.5em;
-    height: 9em;
+  width: 10.5em;
+  height: 9em;
 }
 
 #toki-ona-li-wile-pakala-e-pipi .toki-sentence {
-    width: 9em;
+  width: 9em;
 }

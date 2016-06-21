@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>sitelen rendering</title>
+  <title>rendering blocking scripts with flexbox</title>
   <link rel="stylesheet" href="deps/toki-renderer.css" />
   <link rel="stylesheet" href="deps/style.css" />
   <script src="deps/prefixfree.min.js"></script>
@@ -13,7 +13,7 @@
           crossorigin="anonymous"></script>
 </head>
 <body>
-  <h1>Rendering Linear Toki Pona Text As Sitelen Sitelen</h1>
+  <h1>Rendering Blocking Scripts with Flexbox</h1>
 
   <h3>source available <a href="https://github.com/qguv/sitelen_sitelen">on github</a></h3>
 
@@ -57,15 +57,26 @@
 
   <p>
   The Maya script is complex, and I hope to work on it directly someday. But as
-  a proof of concept to investigate rendering of Maya-like scripts, I am
-  working with <em>sitelen sitelen</em> ("picture drawing"), a script created
-  by Jonathan Gabel for the constructed language <em>toki pona</em>.
+  a proof of concept to investigate rendering of blocking scripts, I am working
+  with <em>sitelen sitelen</em> ("picture drawing"), another blocking script
+  created by Jonathan Gabel for the constructed language <em>toki pona</em>.
   Constructed languages like toki pona let linguists and hobbyists play around
-  with concepts and theories.
+  with concepts and theories, and sitelen sitelen presents a perfect toy
+  example of a blocking script.
   </p>
 
   <p>
-  sitelen sitelen is visually inspired by the Maya script and uses the same
+  This case study will present many of the same challenges as Maya script,
+  particularly with respect to the many acceptable block-layouts for the same
+  linear text, while eschewing the complexity of digitizing thousands of Mayan
+  logographs.
+  </p>
+
+  <h2>Sitelen Sitelen Background</h2>
+
+  <p>
+  sitelen sitelen is a blocking script created by Jonathan Gabel that was
+  visually inspired by the Maya script and uses the same
   <a href="http://jonathangabel.com/archive/2012/learn_t47_lesson-4b.html">glyph combining rules</a>.
   Its simplicity and the simplicity of toki pona grammar make sitelen sitelen
   an ideal subject for a glyph-combining experiment.
@@ -104,6 +115,8 @@
   hierarchical block-representations that Janssen's system requires, then uses
   that system to render the glyph blocks appropriately.
   </p>
+
+  <h2>Examples</h2>
 
   <p>
   Here are some examples, all of which are automatically generated from linear
@@ -148,15 +161,6 @@
     <label>I have a fruit. The bug has water.</label>
   </div>
 
-  <p>
-  There's still a lot to be done. I'd like to support preposition-blocks, many
-  possible block layouts (one would choose by clicking) and the entire toki
-  pona lexicon. Because we're only using the stack layout as defined by
-  Janssen, our blocks don't look symmetrical like they
-  <a href="http://www.jonathangabel.com/archive/2012/images/t47_tokipona/tokisona/tokisona08_l.jpg">should</a>.
-  My next iteration will focus solely on block layout.
-  </p>
-
   <h2>Interactive Demonstration</h2>
   <div id="live" class="inset center column">
     <div class="column center output"></div>
@@ -168,6 +172,18 @@
     <input class="input" value="ona li moku e kili." />
     <button>Render</button>
   </div>
+
+  <h2>Future work</h2>
+
+  <p>
+  There's still a lot to be done. I'd like to support preposition-blocks, many
+  possible block layouts (one would choose by clicking) and the entire toki
+  pona lexicon. Because we're only using the stack layout as defined by
+  Janssen, our blocks don't look symmetrical like they
+  <a href="http://www.jonathangabel.com/archive/2012/images/t47_tokipona/tokisona/tokisona08_l.jpg">should</a>.
+  My next iteration will focus solely on block layout.
+  </p>
+
   <script type="text/javascript">
     var live_render = function () {
       var l = $('div#live')
